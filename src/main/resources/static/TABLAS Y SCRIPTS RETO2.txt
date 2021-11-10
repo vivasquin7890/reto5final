@@ -1,0 +1,153 @@
+CREATE TABLE CLIENT
+(
+  ID NUMBER PRIMARY KEY NOT NULL,
+  NAME VARCHAR2(4000),
+  EMAIL VARCHAR(20),
+  AGE NUMBER NOT NULL
+);
+--CREANDO AUTOINCREMENTABLE
+CREATE SEQUENCE cliente_incrementar START WITH 1 INCREMENT BY 1;
+
+--TRIGGER
+CREATE OR REPLACE TRIGGER cliente_trigger
+    BEFORE INSERT ON CLIENT FOR EACH ROW
+    WHEN  (NEW.ID IS NULL)
+BEGIN 
+    SELECT CLIENTE_INCREMENTAR.NEXTVAL INTO :NEW.ID FROM DUAL;
+END;        
+-------------------------------------------------------------------------------------------------------
+--SCRIPT DE LA TABLA MESSAGE
+CREATE TABLE MESSAGE
+(
+  ID NUMBER PRIMARY KEY NOT NULL,
+  MESSAGETEXT VARCHAR2(4000)
+);
+
+--CREANDO AUTOINCREMENTABLE TABLA MESSAGE
+CREATE SEQUENCE MENSAJE_INCREMENTA START WITH 1 INCREMENT BY 1;
+
+--TRIGGER
+CREATE OR REPLACE TRIGGER mensaje_trigger
+    BEFORE INSERT ON MESSAGE FOR EACH ROW
+    WHEN (NEW.ID IS NULL)
+BEGIN
+    SELECT MENSAJE_INCREMENTA.NEXTVAL INTO :NEW.ID FROM DUAL;
+END;        
+---------------------------------------------------------------------------------------------------------------------------------------------
+--Script de la tabla Motocicleta
+CREATE TABLE MOTOCICLETA 
+(
+ID NUMBER (10) PRIMARY KEY NOT NULL,
+BRAND VARCHAR2(20) NOT NULL,
+MODEL NUMBER NULL,
+CATEGORY_ID NUMBER NOT NULL,
+NAME VARCHAR2 (4000)
+);
+
+--creando autoincremental tabla motocicleta
+CREATE SEQUENCE motocicleta_sec START WITH 1 INCREMENT BY 1;
+
+--Trigger
+CREATE OR REPLACE TRIGGER motocicleta_trigger
+	BEFORE INSERT ON MOTOCICLETA FOR EACH ROW
+	WHEN (NEW.ID IS NULL)
+BEGIN 
+    SELECT motocicleta_sec.NEXTVAL INTO :NEW.ID FROM DUAL;
+END;
+
+
+-----------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+--METODOS Tabla CLIENT
+-- GET
+SELECT * FROM CLIENT
+
+--POST
+BEGIN
+INSERT INTO CLIENT (ID,NAME,EMAIL,AGE)
+VALUES(:id,:name,:email,: age);
+:status_code := 201;
+END;
+
+--PUT
+BEGIN
+UPDATE CLIENT SET NAME=:name,EMAIL=: email,AGE=:age  where ID=:id;
+:status_code := 201;
+END;
+
+--DELETE
+BEGIN
+DELETE FROM CLIENT WHERE ID=:id;
+:status_code := 204;
+END;
+--------------------------------------------------------------------------------------------------------------------------------
+--METODO Tabla CLIENT/:id
+
+--GET
+SELECT * FROM CLIENT WHERE ID =:id
+-----------------------------------------------------------------------------------------------------
+--METODOS Tabla MESSAGE
+
+--GET
+SELECT * FROM MESSAGE
+
+--POST
+BEGIN
+INSERT INTO MESSAGE (ID,MESSAJETEXT)VALUES(:id,:messagetext);
+:status_code := 201;
+END;
+
+--PUT
+BEGIN
+UPDATE MESSAGE SET MESSAGETEXT=:messagetext where ID=:id;
+:status_code := 201;
+END;
+
+--DELETE
+BEGIN
+DELETE FROM MESSAGE WHERE ID=:id;
+:status_code := 204;
+END;
+-------------------------------------------------------------------------
+--METODO tabla MESSAGE/:id
+
+--GET
+SELECT * FROM MESSAGE WHERE ID=:id
+--------------------------------------------------------------------------------------
+--METODOS tabla MOTOCICLETA
+
+--GET
+SELECT * FROM MOTOCICLETA
+
+--POST
+BEGIN
+INSERT INTO MOTOCICLETA (ID,BRAND,MODEL,CATEGORY_ID,
+NAME)VALUES(:id,:brand,:model,:category_id,:name);
+:status_code := 201;
+END;
+
+--PUT
+BEGIN
+UPDATE MOTOCICLETA SET BRAND=:brand,MODEL=:model,
+CATEGORY_ID=:category_id, NAME=:name where ID=:id;
+:status_code := 201;
+END;
+
+--DELETE
+BEGIN
+DELETE FROM MOTOCICLETA WHERE ID=:id;
+:status_code := 204;
+END;

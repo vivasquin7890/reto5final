@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<title>Front Final</title>
+<meta charset="utf-8">
+<meta name="description" content="Este es un documento HTML5">
+<meta name="keywords" content="HTML, CSS, JavaScript">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<link rel="stylesheet" href="estilo.css">
+<script type="text/javascript" src="js/misFunciones.js"></script>  
+</head>
+
+<body>
+    <header id="cabecera">
+    <div>
+    <h1>RESERVAS </h1>
+    </div>
+    </header>
+    <nav id="menuprincipal">
+    <div>
+    <ul>
+    <li><a href="index.html">HOME</a></li>
+    <li><a href="categorias.html">Categorias</a></li>
+    <li><a href="motocicletas.html">Motocicletas</a></li>
+    <li><a href="clientes.html">Clientes</a></li>
+    <li><a href="mensajes.html">Mensajes</a></li>
+    <li><a href="reservas.html">Reservas</a></li>
+    <li><a href="reportes.html">Reportes</a></li>
+    
+    </ul>
+    </div>
+    </nav>
+    <br>
+    <input type="number" id="idReservation" placeholder="Id" readonly style="width : 30px">
+    <br>
+    <br>
+    <label>STARTDATE: Escoja la fecha de inicio de la Reserva</label>
+    <input type="date" id="startdate" >
+    <br>
+    <br>
+    <label>DEVOLUTIONDATE: Escoja la Fecha Devolucion de la Reservacion</label>
+	<input type="date" id="enddate" >
+    <br>
+    <br>
+    <label>STATUS: Estado de la Reservacion "completed / cancelled</label>
+    <input class="controlReservation" type="text" id="status" placeholder="escriba completed o cancelled para el estado de la Reservacion ">
+    <br>
+    <input type="text" id="idCliente" placeholder="Nombre Cliente">
+    <br>
+    <br>
+    <input type="text" id="idMotorbike" placeholder="Motorbike">
+    <br>
+    <br>
+    <input type="text" id="status" placeholder="Status">
+    </br>
+    <h1></h1>
+    </br>
+	<button onclick="NuevaReserva()">Nueva Reserva</button>
+
+	<button onclick="VerRervas()">Ver Reservas</button>
+	
+	<button onclick="actualizarReservation()">Actualizar Reserva</button>
+
+	<button onclick="location.href='index.html'">Home</button>
+    <h1></h1>
+
+	<div>
+
+		<table>
+			<tbody id="miResultadoreserva">
+
+                <style>
+                    table, th, td {
+                        border: 1px solid black;
+                        border-collapse: collapse;
+                    }
+                    </style>
+
+
+</body>
+</html>

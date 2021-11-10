@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<title>Front Final</title>
+<meta charset="utf-8">
+<meta name="description" content="Este es un documento HTML5">
+<meta name="keywords" content="HTML, CSS, JavaScript">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<link rel="stylesheet" href="estilo.css">
+<script type="text/javascript" src="js/misFuncionesClientes.js"></script>  
+</head>
+
+<body>
+    <header id="cabecera">
+    <div>
+    <h1>REGISTRO CLIENTE </h1>
+    </div>
+    </header>
+    <nav id="menuprincipal">
+    <div>
+    <ul>
+        <li><a href="index.html">HOME</a></li>
+        <li><a href="categorias.html">Categorias</a></li>
+        <li><a href="motocicletas.html">Motocicletas</a></li>
+        <li><a href="clientes.html">Clientes</a></li>
+        <li><a href="mensajes.html">Mensajes</a></li>
+        <li><a href="reservas.html">Reservas</a></li>
+        <li><a href="reportes.html">Reportes</a></li>
+    </ul>
+    </div>
+    </nav>
+
+    <div id="resultado3"></div>
+<script type="text/javascript" src="js/misFunciones.js"></script> 
+
+</script>
+<div>
+    <br>
+    <input type="text" id="Clemail" placeholder="email">
+    
+    <input type="text" id="Clpassword" placeholder="password">
+    
+    <input type="text" id="Clname" placeholder="nombre">
+    
+    <input type="number" id="Clage" placeholder="edad">
+</br>
+</div>
+<h1></h1>
+
+	<button onclick="registroclientes()">Agregar Cliente</button>
+
+	<button onclick="obtenerclientes()">Listado Clientes</button>
+	
+	<button onclick="actualizarclientes()">Actualizar Cliente</button>
+
+	<button onclick="location.href='index.html'">Home</button>
+    <h1></h1>
+	<div>
+
+		<table>
+			<tbody id="miResultadoclientes">
+<!--Estilo de la Tabla-->
+<style>
+    table,
+    th,
+    td {
+        border: 5px solid rgb(0, 42, 70);
+        border-collapse: collapse;
+    }
+</style>
+
+  
+</body>
+</html>

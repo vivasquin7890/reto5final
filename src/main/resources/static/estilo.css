@@ -1,0 +1,48 @@
+#cabecera{
+    width: 95%;
+    height: 200px;
+    padding: 0% 3%;
+    background-color: rgb(81, 36, 206);
+}
+#cabecera> div{
+    width: 950px;
+    margin: 0px auto;
+    padding-top: 50px;
+}
+#cabecera h1{
+    font: bold 55px Times New Roman, serif;
+    color: beige;
+}
+#menuprincipal{
+    width: 96%;
+    height: 60px;
+    padding: 0% 3%;
+    background-color: rgb(97, 72, 187);
+    border-top: 1px solid #610761;
+    border-bottom: 1px solid #301931;
+}
+#menuprincipal> div {
+    width: 960px;
+    margin: 0px auto;
+}
+#menuprincipal li{
+    display: inline-block;
+    height: 35px;
+    padding: 10px 8px 0px 8px;
+    margin-right: 5px;
+    
+}
+#menuprincipal li:hover{
+    background-color: aquamarine;
+   
+}
+#menuprincipal a {
+    font: bold 20px Helvetica, sans -serif;
+    color: rgb(32, 7, 7);
+    text-decoration: none;
+}
+main {
+    width: 95%;
+    padding: 2%;
+    background-image: url("moto.jpj");
+}
