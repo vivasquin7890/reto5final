@@ -4,8 +4,10 @@
  */
 package Ejercicio.Reto3.Reto3.controlador;
 
+import Ejercicio.Reto3.Reto3.modelo.ContadorClientes;
 import Ejercicio.Reto3.Reto3.servicio.ServiciosReservaciones;
 import Ejercicio.Reto3.Reto3.modelo.Reservaciones;
+import Ejercicio.Reto3.Reto3.servicio.StatusReservas;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -57,4 +59,27 @@ public class ControladorReservaciones {
     public boolean delete(@PathVariable("id") int reservationId) {
         return servicio.deleteReservation(reservationId);
     }
+    
+    @GetMapping("/report-status")
+    public StatusReservas getReservas(){
+        return servicio.getRepStatusRes();
+    }
+
+
+    @GetMapping("/report-dates/{dateOne}/{dateTwo}")
+    public List<Reservaciones> getReservasTiempo(@PathVariable("dateOne")String dateOne,@PathVariable("dateTwo")String dateTwo){
+        return servicio.reporteTiempoServicio(dateOne, dateTwo);
+    }
+
+
+    @GetMapping("/report-clients")
+    public List<ContadorClientes> getClient(){
+        return servicio.reporteClientesServicio();
+    }
+    
+    
+    
+    
+    
+    
 }
